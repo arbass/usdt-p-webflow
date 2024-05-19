@@ -23,6 +23,19 @@ export const stepSliderFunc = () => {
           });
 
           stepItems_elements[id].classList.add('is-active');
+
+          //
+
+          function scrollToElement(elementId) {
+            const container = document.getElementById('step-slider_steps-wrapper');
+            const element = document.getElementById(elementId);
+            if (container && element) {
+              container.scrollTop = element.offsetTop - container.offsetTop;
+            }
+          }
+          const stepSelector = 'step-slider_steps-item-' + (id + 1);
+
+          scrollToElement(stepSelector);
         }
       });
     }
